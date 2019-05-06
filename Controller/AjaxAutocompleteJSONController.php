@@ -5,19 +5,17 @@ namespace Shtumi\UsefulBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 class AjaxAutocompleteJSONController extends Controller
 {
 
-    public function getJSONAction()
+    public function getJSONAction(Request $request)
     {
 
         $em = $this->get('doctrine')->getManager();
-        $request = $this->getRequest();
 
         $entities = $this->get('service_container')->getParameter('shtumi.autocomplete_entities');
 
