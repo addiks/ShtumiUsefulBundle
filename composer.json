@@ -4,6 +4,9 @@
     "description": "Symfony ShtumiUsefulBundle",
     "keywords": ["Ajax Autocomplete form type", "Dependent filtered form type", "daterange", "shtumi"],
     "license": "MIT",
+    "config": {
+        "sort-packages": true
+    },
     "authors": [
         {
             "name": "Mikhail Shtukin",
@@ -19,7 +22,11 @@
         }
     ],
     "require": {
-        "php": ">=5.3.2"
+        "php": ">=7.3",
+        "ext-json": "*",
+        "doctrine/orm": "*",
+        "symfony/framework-bundle": ">=4.4.0",
+        "symfony/security": ">=4.4.0"
     },
     "suggest": {
         "sonata-project/admin-bundle": "master-dev",

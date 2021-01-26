@@ -2,12 +2,12 @@
 
 namespace Shtumi\UsefulBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
-class Select2EntityController extends Controller
+class Select2EntityController extends AbstractController
 {
     /**
      * @param Request $request
