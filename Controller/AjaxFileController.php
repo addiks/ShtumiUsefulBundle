@@ -2,21 +2,15 @@
 
 namespace Shtumi\UsefulBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AjaxFileController extends Controller
+class AjaxFileController extends AbstractController
 {
 
-    public function uploadAction()
+    public function uploadAction(Request $request)
     {
-        $request = $this->getRequest();
-
         $filesBag = $request->files->all();
 
         $files = array();

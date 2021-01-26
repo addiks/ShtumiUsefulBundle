@@ -2,22 +2,16 @@
 
 namespace Shtumi\UsefulBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-
 use Symfony\Component\HttpFoundation\Response;
 
-class DependentFilteredEntityController extends Controller
+class DependentFilteredEntityController extends AbstractController
 {
 
-    public function getOptionsAction()
+    public function getOptionsAction(Request $request)
     {
-
-        $em = $this->get('doctrine')->getManager();
-        $request = $this->getRequest();
         $translator = $this->get('translator');
 
         $entity_alias = $request->get('entity_alias');
@@ -77,15 +71,13 @@ class DependentFilteredEntityController extends Controller
     }
 
 
-    public function getJSONAction()
+    public function getJSONAction(Request $request)
     {
         /** @var \Doctrine\ORM\EntityManager $em */
         $em = $this->get('doctrine.orm.entity_manager');
-        $request = $this->get('request');
 
         $entity_alias = $request->get('entity_alias');
         $parent_id    = $request->get('parent_id');
-        $empty_value  = $request->get('empty_value');
 
         $entities = $this->get('service_container')->getParameter('shtumi.dependent_filtered_entities');
         $entity_inf = $entities[$entity_alias];
